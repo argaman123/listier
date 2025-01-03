@@ -6,13 +6,11 @@ import { AppComponent } from './app.component';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {providePrimeNG} from 'primeng/config';
 import Aura from '@primeng/themes/aura';
-import { ButtonDemoComponent } from './button-demo/button-demo.component';
 import {ButtonModule} from 'primeng/button';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ButtonDemoComponent
   ],
   imports: [
     BrowserModule,
