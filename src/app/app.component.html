@@ -6,35 +6,24 @@
     </div>
   </ng-template>
   <ng-template #header>
-    <tr>
+    <tr cdkDropList
+        cdkDropListOrientation="horizontal"
+        [cdkDropListData]="columns"
+        (cdkDropListDropped)="dropCol($event)">
       <th></th>
-      <th>Name</th>
-      <th>Image</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Reviews</th>
-      <th>Status</th>
+      @for (col of columns; track col) {
+        <th cdkDrag>{{col}}</th>
+      }
     </tr>
   </ng-template>
-  <ng-template #body let-product  let-index='rowIndex'>
+  <ng-template #body let-product let-index='rowIndex'>
     <tr [pReorderableRow]="index">
       <td>
         <span class="pi pi-bars" pReorderableRowHandle></span>
       </td>
-      <td>{{ product.name }}</td>
-      <td>
-        <img
-          [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
-          [alt]="product.name"
-          class="w-24 rounded"
-        />
-      </td>
-      <td>{{ product.price | currency: 'USD' }}</td>
-      <td>{{ product.category }}</td>
-      <td><p-rating [(ngModel)]="product.rating" [readonly]="true"/></td>
-      <td>
-        <p-tag [value]="product.inventoryStatus"  />
-      </td>
+      @for (col of columns; track col) {
+        <td>{{product[col]}}</td>
+      }
     </tr>
   </ng-template>
 </p-table>

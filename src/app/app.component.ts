@@ -7,6 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
+  columns = ["name", "image", "price", "category", "rating"]
+
   products =  [
     {
       id: '1000',
@@ -105,5 +108,10 @@ export class AppComponent {
       rating: 5
     }
   ]
+
+  dropCol(event: any){
+    this.columns.splice(event.currentIndex, 0, this.columns.splice(event.previousIndex, 1)[0])
+  }
+
 }
 
