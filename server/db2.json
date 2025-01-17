@@ -1,0 +1,19 @@
+{
+  "shapes" : [
+    {
+      "type": "circle",
+      "name": "argaman",
+      "radius": 10.5
+    },
+    {
+      "type": "rectangle",
+      "name": "yair",
+      "width": 5.0,
+      "height": 10.0,
+      "names": [
+        "one",
+        "two"
+      ]
+    }
+  ]
+}

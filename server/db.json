@@ -1,0 +1,37 @@
+{
+  "version": "1.0",
+  "columns": [
+    {
+      "id": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421",
+      "name": "worker",
+      "type": "text"
+    },
+    {
+      "id": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421",
+      "name": "options",
+      "type": "select"
+    }
+  ],
+  "rows": [
+    {
+      "id": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421"
+    },
+    {
+      "id": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421"
+    }
+  ],
+  "cells": [
+    {
+      "rowID": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421",
+      "columnID": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421",
+      "type": "text",
+      "content": "John Doe"
+    },
+    {
+      "rowID": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421",
+      "columnID": "b3a1c329-56cf-4b9d-b9c9-58728e1f3421",
+      "type": "select",
+      "selected": "Option 1"
+    }
+  ]
+}
