@@ -67,7 +67,7 @@ class TextCell(val content: String) : Cell()
 
 @Serializable
 @SerialName("select")
-class SelectCell(val selected: String) : Cell()
+class SelectCell(val selected: List<String>) : Cell()
 
 @Serializable
 @SerialName("date")
