@@ -1,4 +1,4 @@
-<p-table [value]="products" [tableStyle]="{ 'min-width': '60rem' }">
+<p-table [value]="rows" [tableStyle]="{ 'min-width': '60rem' }">
   <ng-template #caption>
     <div class="flex items-center justify-between">
       <span class="text-xl font-bold">Products</span>
@@ -11,18 +11,38 @@
         [cdkDropListData]="columns"
         (cdkDropListDropped)="dropCol($event)">
       <th></th>
-      @for (col of columns; track col) {
-        <th cdkDrag>{{col}}</th>
+      @for (col of columns; track col.id) {
+        <th cdkDrag>{{col.name}}</th>
       }
     </tr>
   </ng-template>
-  <ng-template #body let-product let-index='rowIndex'>
+  <ng-template #body let-row let-index="rowIndex">
     <tr [pReorderableRow]="index">
       <td>
         <span class="pi pi-bars" pReorderableRowHandle></span>
       </td>
-      @for (col of columns; track col) {
-        <td>{{product[col]}}</td>
+      @for (col of columns; track col.id) {
+        @let cell = table[row.id][col.id];
+        @if (cell != undefined) {
+          @switch (cell.type){
+            @case ("text"){
+              <td>{{cell.content}}</td>
+            }
+            @case ("select"){
+              <td>
+                @for (id of cell.selected; track id){
+                  @let selected = getSelectedValue(col.id, id);
+                  <p-tag [value]="selected?.label" [style]="{'backgroundColor': selected?.color}"/>
+                }
+              </td>
+            }
+            @case ("date"){
+              <td>{{cell.date | date}}</td>
+            }
+          }
+        } @else {
+          <td></td>
+        }
       }
     </tr>
   </ng-template>
